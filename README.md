@@ -3,8 +3,8 @@
 ## Steps for running the project
 
 Step 1: Create a virtual environment\
-Step 2: Install all the requirements using requirements.txt
-step 3: In filesharing/settings.py add your own SECRET_KEY  
+Step 2: Install all the requirements using requirements.txt\
+Step 3: In filesharing/settings.py add your own SECRET_KEY\  
 Step 4: Run python manage.py runserver\
 Step 5: The website will run on http://localhost:8000 and Enjoy !!!
 
