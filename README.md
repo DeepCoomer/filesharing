@@ -3,9 +3,10 @@
 ## Steps for running the project
 
 Step 1: Create a virtual environment\
-Step 2: Install all the requirements using requirements.txt  
-Step 3: Run python manage.py runserver\
-Step 4: The website will run on http://localhost:8000 and Enjoy !!!
+Step 2: Install all the requirements using requirements.txt
+step 3: In filesharing/settings.py add your own SECRET_KEY  
+Step 4: Run python manage.py runserver\
+Step 5: The website will run on http://localhost:8000 and Enjoy !!!
 
 ## Website url: https://filesharing-six.vercel.app/ (Only use for viewing the UI as this hosted version doesn't work because database issue on vercel) 
 
