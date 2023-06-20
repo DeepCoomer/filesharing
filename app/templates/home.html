@@ -94,7 +94,7 @@
     <script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
     <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
 
-{% comment %} 
+    {% comment %}
     <div class="text-center">
 
         <img src="/media/image/undraw.svg" class="img-fluid img-responsive" style="height: 200px;">
@@ -129,6 +129,10 @@
 
 
     <script>
+        document.onreadystatechange = function () {//window.addEventListener('readystatechange',function(){...}); (for Netscape) and window.attachEvent('onreadystatechange',function(){...}); (for IE and Opera) also work
+            if (document.readyState == 'loaded' || document.readyState == 'complete' && location.protocol === "https")
+                alert("Only use for viewing the UI as this hosted version doesn't work because database issue on vercel");
+        }
         FilePond.registerPlugin(
             FilePondPluginImagePreview,
 
@@ -150,19 +154,19 @@
             }
 
             fetch('/handle/', {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRFToken': "{{csrf_token}}"
-                    },
-                    body: formdata
-                }).then(res => res.json())
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': "{{csrf_token}}"
+                },
+                body: formdata
+            }).then(res => res.json())
                 .then(result => {
                     console.log(result)
 
                     url = `${location.protocol}//${location.hostname}:${location.port}/download/${result.data.folder}`
 
                     document.getElementById('btn').style.display = ''
-                    
+
 
                 })
 
@@ -170,8 +174,8 @@
 
         function copyClip() {
             console.log('dd')
-        
-         
+
+
             /* Copy the text inside the text field */
             navigator.clipboard.writeText(url);
 
